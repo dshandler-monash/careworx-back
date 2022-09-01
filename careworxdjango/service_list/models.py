@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+# Model to access service_list TABLE in serviceListDB Database
+class serviceList(models.Model):
+    # … fields …
+    
+    class Meta:
+        managed = False
