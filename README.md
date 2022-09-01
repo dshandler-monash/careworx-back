@@ -8,14 +8,22 @@ One in every 6 Australians are aged (over 65 years and above) and one-third of t
 
 The team plans to develop a website that will allow its users to chat with other users through their profiles or as a guest, create and search for social group activities in proximity to their location and search for aged-care homes that adequately meets their requirements. It is also envisioned to incorporate a search option which would list out the government benefits entitled to an aged person, along with an AI enabled chatbot to provide any informative support. Agile methodology will be adopted to develop the project in iterations with features to be rolled out in continuous integration and continuous deployment mode. 
 
-## Libraries
-
-To be updated
-
 ## Languages
 
-To be updated
+Python
 
-## Packages
+## Linux Packages
 
-To be updated
+python3-venv
+python3-dev
+default-libmysqlclient-dev
+build-essential
+nginx
+supervisor
+
+## Python Packages
+
+mysqlclient
+django
+gunicorn
+
