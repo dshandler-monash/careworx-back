@@ -1,7 +1,3 @@
 from curses.ascii import HT
-from django.shortcuts import render, HttpResponse
-
+from django.shortcuts import render
 # Create your views here.
-
-def Index(request):
-    return HttpResponse("It is working!")
