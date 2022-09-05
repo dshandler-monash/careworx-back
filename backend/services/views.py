@@ -37,7 +37,7 @@ class ProductMixinView(
     generics.GenericAPIView
     ):
 
-    qs = Service.objects.all() #queryset
+    queryset = Service.objects.all() #queryset
     serializer_class = ServiceSerializer
     lookup_field = 'pk' # change here for retrieveModelMixin
 
