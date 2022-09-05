@@ -4,4 +4,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request,'servicelist/index.html')
+    return render(request,'service_list/index.html')
