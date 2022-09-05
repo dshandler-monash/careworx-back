@@ -3,15 +3,18 @@ from django.db.models import Q
 # Create your models here.
 
 class ServiceQuerySet(models.QuerySet):
-    
+    def search(self, query):
+        lookup = Q(suburb__icontains=query) | Q(post_code__icontains=query)
+        qs = self.filter(lookup) #Service.objects.filter(lookup)
+        return qs
+
     def search(self, query):
         return self.filter(suburb__icontains.query)
 
 class ServiceManager(models.Manager):
 
     def search(self, query):
-        lookup = Q(suburb__icontains=query) | Q(post_code__icontains=query)
-        return Service.objects.filter(lookup)
+        return self.get_queryset().search(query)
 
 class Service(models.Model):
     ## Model for ServiceListDB attained from python manage.py inspectdb
@@ -32,6 +35,8 @@ class Service(models.Model):
     lat = models.CharField(max_length=255, blank=True, null=True)
     lon = models.CharField(max_length=255, blank=True, null=True)
     federal_funding_2021 = models.CharField(max_length=255, blank=True, null=True)
+
+    objects = ServiceManager()
 
     class Meta:
         managed = False
