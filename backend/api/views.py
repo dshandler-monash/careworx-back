@@ -20,7 +20,7 @@ def api_home(request, *args, **kwargs):
     """
     instance = Service.objects.all().order_by("?").first() #serializer
     data = {}
-    if model_data:
+    if instance:
         data = ProductSerializer(instance).data
 
     return JsonResponse(data)
