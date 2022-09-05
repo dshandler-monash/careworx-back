@@ -10,5 +10,7 @@ class SearchListView(generics.ListAPIView):
     def get_queryset(self, *args, **kargs):
         qs = super().get_queryset(*args, **kargs) 
         q = self.request.GET.get('q')
-        results = qs.search(q)
+        results = Service.objects.none()
+        if q is not None:
+            results = qs.search(q)
         return results
