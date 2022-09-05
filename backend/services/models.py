@@ -4,7 +4,7 @@ from django.db.models import Q
 
 class ServiceQuerySet(models.QuerySet):
     def search(self, query):
-        lookup = Q(suburb__icontains=query) | Q(post_code__icontains=query)
+        lookup = Q(suburb__icontains=query) | Q(post_code=query)
         qs = self.filter(lookup) #Service.objects.filter(lookup)
         return qs
 
