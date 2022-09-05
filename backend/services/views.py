@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from .models import Service
 from .serializers import ServiceSerializer
-from backend.services import serializers
+#from backend.services import serializers
 
 class ServiceCreateAPIView(generics.CreateAPIView):
     queryset = Service.objects.all()
