@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class ServiceList(models.Model):
+class Service(models.Model):
     ## Model for ServiceListDB attained from python manage.py inspectdb
     service_name = models.CharField(max_length=255, blank=True, null=True)
     address_1 = models.CharField(max_length=255, blank=True, null=True)
