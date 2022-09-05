@@ -21,9 +21,9 @@ def api_home(request, *args, **kwargs):
     instance = Service.objects.all().order_by("?").first() #serializer
     data = {}
     if instance:
-        data = ProductSerializer(instance).data
+        data = ServiceSerializer(instance).data
 
-    return JsonResponse(data)
+    return Response(data)
 
 #def api_home(request, *args, **kwargs):
     # Generate JsonResponse from request
