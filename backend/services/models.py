@@ -9,9 +9,12 @@ class ServiceQuerySet(models.QuerySet):
         return qs
 
     def search(self, query):
-        return self.filter(suburb__icontains.query)
+        return self.filter(suburb__icontains=query)
 
 class ServiceManager(models.Manager):
+
+    def get_queryset(self, *args, **kargs):
+        return ServiceQuerySet(self.model, using=self._db)
 
     def search(self, query):
         return self.get_queryset().search(query)
