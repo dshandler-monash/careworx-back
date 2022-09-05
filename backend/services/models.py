@@ -1,6 +1,17 @@
 from django.db import models
-
+from django.db.models import Q
 # Create your models here.
+
+class ServiceQuerySet(models.QuerySet):
+    
+    def search(self, query):
+        return self.filter(suburb__icontains.query)
+
+class ServiceManager(models.Manager):
+
+    def search(self, query):
+        lookup = Q(suburb__icontains=query) | Q(post_code__icontains=query)
+        return Service.objects.filter(lookup)
 
 class Service(models.Model):
     ## Model for ServiceListDB attained from python manage.py inspectdb
