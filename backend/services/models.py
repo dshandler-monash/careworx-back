@@ -4,12 +4,12 @@ from django.db.models import Q
 
 class ServiceQuerySet(models.QuerySet):
     def search(self, query):
-        lookup = Q(suburb__icontains=query) | Q(post_code__startswith=query)
+        lookup = Q(suburb__icontains=query) | Q(post_code__exact=query)
         qs = self.filter(lookup) #Service.objects.filter(lookup)
         return qs
 
-    def search(self, query):
-        return self.filter(suburb__icontains=query)
+    #def search(self, query):
+    #    return self.filter(suburb__icontains=query)
 
 class ServiceManager(models.Manager):
 
