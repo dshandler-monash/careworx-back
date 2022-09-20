@@ -20,12 +20,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8u(=i(msrtcipeenu80hzkixrrxdh3c(a!sy*r8s9je0p6xk%z'
+SECRET_KEY = '%f=xnstyk(kpgh#evaaal1$bwpm9gq45wwj9z_#@3&9247qyxc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SECURE_SSL_REDIRECT=False
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+SECURE_HSTS_SECONDS=36000
+SECURE_HSTS_PRELOAD=False
+SECURE_HSTS_SECONDS=0
+SECURE_HSTS_INCLUDE_SUBDOMAINS=False
 
-ALLOWED_HOSTS = ['54.252.238.6']
+#CSRF_COOKIE_NAME = 'XSRF-TOKEN'
+#CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
+
+ALLOWED_HOSTS = ['54.252.238.6', 'uvprotect.me', 'www.uvprotect.me']
 
 
 # Application definition
